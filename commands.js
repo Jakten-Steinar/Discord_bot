@@ -2,9 +2,10 @@ require('dotenv').config()
 const common = require('./commands/common.js')
 const commonmp = require('./commands/commonmp.js')
 const rgame = require('./commands/randomGame.js')
+const newgame = require('./commands/randomNewGame.js')
 const help = require('./commands/help.js')
 
-const commands = {common, commonmp, help, rgame}
+const commands = {common, commonmp, help, rgame, newgame}
 
 module.exports = async function(msg){
     if(msg.channel.id == process.env.STEAM_CHANNEL_ID){

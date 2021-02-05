@@ -186,7 +186,6 @@ async function getCommonMultiplayerGames(usernames){
             }
         }
     }
-    
     return CommonMultiplayerGames
 }
 
@@ -202,7 +201,12 @@ async function getRandomGame(player){
 
     let gameList = await getGameLibraryTry(playerId);
     let randomGame = gameList[Math.floor(Math.random() * gameList.length)]
+    let gameDetail = await getGameTagsTry(randomGame.appID)
     
+    randomGame.short_description = gameDetail.short_description
+    randomGame.website = gameDetail.website
+    
+    //gameList[330] - ETS2
     return randomGame
     /*
     Game {
@@ -211,13 +215,21 @@ async function getRandomGame(player){
         playTime: 0,
         playTime2: 0,
         logoURL: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/606330/1c83967692435c8b0a22810f684c20243e4df593.jpg',
-        iconURL: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/606330/6dee631064d4e5611e10db07deaf64292a38b6d9.jpg' 
+        iconURL: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/606330/6dee631064d4e5611e10db07deaf64292a38b6d9.jpg',
+        short_description: 'Superflight is an intense, easy to learn wingsuit game with an infinite number of beautiful procedurally generated maps. A great game to relax for half an hour and chase your latest highscore!',
+        website: 'https://superflightgame.com' 
     }
     */
 }
 
-async function getRandomNewGame(){
-
+async function getRandomNewGame(player){
+    let randomGame = await getRandomGame(player)
+    while(randomGame.playTime > 0){
+        console.log('🚫 You have played ' + randomGame.name + '. Finding new game 🚫')
+        randomGame = await getRandomGame(player)
+    }
+    console.log('✔️  Found a game you hae not played before!')
+    return randomGame
 }
 
 //############## Test while dev
@@ -254,5 +266,9 @@ module.exports = {
     fetchRandomGame: async function(inputName){
         error = false; errorMessage = ""
         return getRandomGame(inputName)
+    },
+    fetchRandomNewGame: async function(inputName){
+        error = false; errorMessage = ""
+        return getRandomNewGame(inputName)
     }
 }
