@@ -1,0 +1,30 @@
+steam categori ID:
+-> 1 - Multi-player
+-> 9 - Co-op
+-> 20 - MMO
+-> 36 - Online PvP
+-> 38 - Online Co-op
+-> 49 - PvP
+
+RPG, MMORPG, 
+
+TODO:
+-> Fiks for lange meldinger
+-> Gjøre den raskere 🟠 (Søk etter tag er fortsatt treg)
+-> Refaktorisere
+-> Foreslå et tilfeldig spill
+-> Foreslå et tilfeldig spill med 0 timer spilt
+-> Embeded message
+-> Kan hente navn sammtidig som jeg henter id - bør bli raskere✔️
+-> Sortere etter tags (MP f.eks)✔️
+-> Minst to navn for å sjekke✔️
+
+
+✔️
+🟠
+❌
+🚫
+⚠️
+🤖
+🦾
+☠️
