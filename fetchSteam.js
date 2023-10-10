@@ -17,6 +17,12 @@ function getGameDetails(gameID){
     return steam.getGameDetails(gameID, false);
 }
 
+//Gets nickname form username/SteamID64   ### Fungerer ikke helt enda
+function getNickname(username){
+    let steamUserID = steam.resolve('https://steamcommunity.com/'+ username +'/DimGG')
+    console.log(SteamFriends.GetFriendPersonaName(steamUserID))
+}
+
 
 //#################### TRY ####################
 
@@ -176,13 +182,15 @@ async function getCommonMultiplayerGames(usernames){
     if(error){return errorMessage}
 
     let CommonMultiplayerGames = []
-    const targetTag = 1 //1 = Multi-player || 9 = coop
+    const mpTag = 1 //1 = Multi-player
+    const coopTag = 9 // 9 = CO-OP
     let CommonGamesDetails = await getGameTags(commonGamesId)
     
     for(const game of CommonGamesDetails){
         for(const tag of game.categories){
-            if(tag.id == targetTag){
+            if(tag.id == mpTag ||tag.id == coopTag){ 
                 CommonMultiplayerGames.push(game.name)
+                break
             }
         }
     }

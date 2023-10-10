@@ -10,6 +10,6 @@ client.on('ready', connectedToDiscord);
 
 function connectedToDiscord(){
     console.log('✔️  Connected to Discord');
+    //msg.channel.send('Ready to choo choo 🚂')  <-- Jeg vil sende en melding når boten er på
 }
-
 client.on('message', commandHandler);

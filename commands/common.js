@@ -1,4 +1,5 @@
 const steam = require('./../fetchSteam');
+const textPoster = require('./../textPoster');
 
 module.exports = async function(msg, args){
     function checkForDuplicates(array) {
@@ -20,7 +21,9 @@ module.exports = async function(msg, args){
             msg.delete()
         }else{
             msg.channel.send('🎮 You have '+ userGames.length + ' common games 🎮')
-            msg.channel.send(userGames.sort());
+            //Checking if the file is too big before posting on Discord
+            textPoster.postText(userGames.sort(), msg, args);
+            //msg.channel.send(userGames.sort());
             msg.channel.send('🤖 Beep boop 🤖')
             msg.delete()
         }

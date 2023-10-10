@@ -15,12 +15,23 @@ TODO:
 -> Foreslå et tilfeldig spill
 -> Foreslå et tilfeldig spill med 0 timer spilt
 -> Embeded message
--> Kan hente navn sammtidig som jeg henter id - bør bli raskere✔️
--> Sortere etter tags (MP f.eks)✔️
--> Minst to navn for å sjekke✔️
+-> Kan hente navn sammtidig som jeg henter id - bør bli raskere ✅
+-> Sortere etter tags (MP f.eks) ✅
+-> Minst to navn for å sjekke ✅
+-> Sjekke om meldingen er over 2000 karakterer og splitte hvis den er det 🟠 (Har en fiks hvor jeg poster med en gang, men vil poste alt sammtidig)
+-> Legge inn en tidtager på hvor lang prosessen var
+-> UNPLAYED er ikke implementert enda. Koden er bare kopiert fra GAMECOUNT
+-> Rydde opp i koden til NEWGAME. For hver loop sjekker den antall spillere og id. Krasjer pga game description
+-> COMMONMP sjekker bare etter Multiplayer tag. Må også sjekke co-op ✅
+-> 
 
+
+Steam api
+https://developer.valvesoftware.com/wiki/Steam_Web_API
+https://partner.steamgames.com/doc/webapi/ISteamUser
 
 ✔️
+✅
 🟠
 ❌
 🚫
